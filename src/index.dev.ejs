@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13px" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="./">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>xy-tools-template</title>
+
+    <% for (var css of htmlWebpackPlugin.files.css) { %>
+        <% if (htmlWebpackPlugin.options.filename.includes(css.split('.')[0])) { %>
+            <link href="<%= css %>" rel="stylesheet">
+        <% } %>
+    <% } %>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body {
+        height: 100%;
+    }
+</style>
+<body>
+
+    <div id="root"></div>
+
+<% for (var js of htmlWebpackPlugin.files.js) { %>
+    <% if (htmlWebpackPlugin.options.filename.includes(js.split('.')[0])) { %>
+        <script type="text/javascript" src="<%= js %>"></script>
+    <% } %>
+<% } %>
+
+</body>
+
+</html>
