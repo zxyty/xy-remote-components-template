@@ -1,6 +1,6 @@
 {
   "name": "xy-remote-components-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "start": "xy-component-tools start",
@@ -9,7 +9,7 @@
   },
   "author": "zxy",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
