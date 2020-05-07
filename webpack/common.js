@@ -76,15 +76,37 @@ module.exports = {
     ],
   },
 
-  lessLoader: {
+  lessLoaderSrc: {
     test: /\.(le|c)ss$/,
+    exclude: [/node_modules/],
     use: [
       MiniCssExtractPlugin.loader,
       {
         loader: 'css-loader',
         options: {
           sourceMap: true,
-          modules: true, // not enable css module
+          modules: true, // enable css module
+        },
+      },
+      {
+        loader: 'less-loader',
+        options: {
+          javascriptEnabled: true,
+        },
+      },
+    ],
+  },
+
+  lessLoaderNodeModules: {
+    test: /\.(le|c)ss$/,
+    exclude: [/src/],
+    use: [
+      MiniCssExtractPlugin.loader,
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: false,
+          modules: false, // not enable css module
         },
       },
       {

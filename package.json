@@ -1,11 +1,12 @@
 {
   "name": "xy-remote-components-template",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "scripts": {
     "start": "xy-component-tools start",
     "build": "xy-component-tools compile",
-    "style": "xy-component-tools style"
+    "style": "xy-component-tools style",
+    "rmm": "rimraf node_modules"
   },
   "author": "zxy",
   "license": "ISC",
@@ -44,6 +45,8 @@
     "less-plugin-npm-import": "^2.1.0",
     "mini-css-extract-plugin": "^0.8.0",
     "postcss": "^7.0.28",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
     "rucksack-css": "^1.0.2",
     "style-loader": "^0.23.1",

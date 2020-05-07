@@ -29,7 +29,15 @@ const plugins = [
       regenerator: true,
       corejs: 2
     }
-  ]
+  ],
+  // [
+  //   "import",
+  //   {
+  //     libraryName: "antd",
+  //     style: true
+  //   },
+  //   "antd"
+  // ],
 ];
 // if (process.env["BABEL_ENV"] && process.env["BABEL_ENV"] === "production") {
 //   plugins.push(

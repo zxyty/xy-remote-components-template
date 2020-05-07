@@ -62,15 +62,16 @@ module.exports = {
       common.jsLoader,
       common.fileLoader,
       common.urlLoader,
-      common.lessLoader,
+      common.lessLoaderSrc,
+      common.lessLoaderNodeModules,
     ]
   },
 
-  // externals: {
-  //   'moment': 'moment',
-  //   'react': 'React',
-  //   'react-dom': 'ReactDOM'
-  // },
+  externals: {
+    'moment': 'moment',
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
 
   resolve: {
     ...common.resolve

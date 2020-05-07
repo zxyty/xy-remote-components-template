@@ -54,7 +54,8 @@ module.exports = {
     rules: [
       common.templateLoader,
       common.jsLoader,
-      common.lessLoader,
+      common.lessLoaderSrc,
+      common.lessLoaderNodeModules,
       common.fileLoader,
       common.urlLoader,
       common.htmlLoader
