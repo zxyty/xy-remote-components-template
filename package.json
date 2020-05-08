@@ -1,6 +1,6 @@
 {
   "name": "xy-remote-components-template",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "",
   "scripts": {
     "start": "xy-component-tools start",
@@ -11,6 +11,10 @@
   },
   "author": "zxy",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zxyty/xy-remote-components-template"
+  },
   "dependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
