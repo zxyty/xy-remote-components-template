@@ -19,6 +19,6 @@
     "noEmit": false,
     "emitDeclarationOnly": true
   },
-  "exclude": ["node_modules", "lib"],
+  "exclude": ["node_modules", "lib", "src/window"],
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

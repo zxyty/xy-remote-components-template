@@ -6,6 +6,7 @@
     "start": "xy-component-tools start",
     "build": "xy-component-tools compile",
     "style": "xy-component-tools style",
+    "def": "xy-component-tools def",
     "rmm": "rimraf node_modules"
   },
   "author": "zxy",
