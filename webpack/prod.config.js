@@ -3,6 +3,7 @@ const glob = require("glob");
 // const HtmlPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const common = require("./common");
 
@@ -19,13 +20,21 @@ const getParentDirName = (filePath) => {
 }
 
 const entry = (() => {
-    const entryComponentsFiles = [
+    const entryReactComponentsFiles = [
       ...(glob.sync(`${paths.src}/components/**/index.tsx`) || []),
+    ];
+    const entryVueComponentsFiles = [
+      ...(glob.sync(`${paths.src}/components/**/index.vue`) || []),
     ];
     const entryJsMap = {};
 
-    entryComponentsFiles.forEach(filepath => {
+    entryReactComponentsFiles.forEach(filepath => {
       const fileName = path.basename(filepath, '.tsx').toLocaleLowerCase();
+      const parentName = getParentDirName(filepath);
+      entryJsMap[`${parentName}/${fileName}`] = filepath;
+    });
+    entryVueComponentsFiles.forEach(filepath => {
+      const fileName = path.basename(filepath, '.vue').toLocaleLowerCase();
       const parentName = getParentDirName(filepath);
       entryJsMap[`${parentName}/${fileName}`] = filepath;
     });
@@ -51,6 +60,8 @@ module.exports = {
       chunkFilename: "[name].css"
     }),
 
+    new VueLoaderPlugin(),
+
     new CopyWebpackPlugin(
       common.copyPluginConfig.patterns,
       common.copyPluginConfig.options
@@ -60,6 +71,7 @@ module.exports = {
   module: {
     rules: [
       common.jsLoader,
+      common.vueLoader,
       common.fileLoader,
       common.urlLoader,
       common.lessLoaderSrc,

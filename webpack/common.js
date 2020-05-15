@@ -76,6 +76,11 @@ module.exports = {
     ],
   },
 
+  vueLoader: {
+    test: /\.vue$/,
+    loader: 'vue-loader',
+  },
+
   lessLoaderSrc: {
     test: /\.(le|c)ss$/,
     exclude: [/node_modules/],
@@ -85,7 +90,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           sourceMap: true,
-          modules: true, // enable css module
+          modules: false, // enable css module
         },
       },
       {
@@ -114,7 +119,7 @@ module.exports = {
         options: {
           javascriptEnabled: true,
         },
-      },
+      }
     ],
   },
 
@@ -142,6 +147,8 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
-    alias: {},
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    },
   },
 };

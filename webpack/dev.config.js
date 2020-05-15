@@ -1,8 +1,8 @@
 const { join } = require('path');
 const webpack = require('webpack');
-
 const HtmlPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./common');
 
@@ -35,6 +35,7 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new VueLoaderPlugin(),
     new CopyWebpackPlugin(
       common.copyPluginConfig.patterns,
       common.copyPluginConfig.options,
@@ -54,6 +55,7 @@ module.exports = {
     rules: [
       common.templateLoader,
       common.jsLoader,
+      common.vueLoader,
       common.lessLoaderSrc,
       common.lessLoaderNodeModules,
       common.fileLoader,

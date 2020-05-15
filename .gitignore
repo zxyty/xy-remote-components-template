@@ -71,3 +71,7 @@ devcpp/index.cpp
 # vs c#
 *.pdb
 *.exe.config
+
+src/components
+src/theme
+src/BaseComponent*
